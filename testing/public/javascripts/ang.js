@@ -1,8 +1,18 @@
-var app = angular.module('app', []);
+var app = angular.module('app', [])
 var controllers = {};
 var factories = {};
 app.controller(controllers);
 app.factory(factories);
+app.directive('myBackgroundImage', function () {
+        return function (scope, element, attrs) {
+            element.css({
+                'background-image': 'url(' + attrs.myBackgroundImage + ')',
+                    'background-size': 'cover',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center center'
+            });
+        };
+    });;
 
 
 controllers.ModalInstanceCtrl = function ($scope, $modalInstance, post){

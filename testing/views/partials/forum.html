@@ -1,8 +1,30 @@
 
+            <div class="media">
+              <div class="media-left">
+                <a ng-click="upvote(post)">
+                  <img class="media-object" src="..." alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+               
+              </div>
+            </div>
+ -->
             <ul class="list-group">
 
             <li class="list-group-item">
-                <textarea class="form-control" rows="5" placeholder="New Post" ng-model="newPost"></textarea>
+                <textarea class="form-control" rows="5" placeholder="I want to tell my mom but don't know how to go about it! Help?
+Gathering today at the Cafe on 32nd St!" ng-model="newPost"></textarea>
+                <br>
+                <p>Private Questions? Just tick the 'Anonymize' or 'Professionals Only' box below</p>
+                <label>
+                    <input type="checkbox" /> Anonymize
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" /> Professionals Only
+                </label>
+                <br>
                 <br>
                 <button class='btn btn-success' ng-click="addNewPost()">Submit</button>
             </li>
