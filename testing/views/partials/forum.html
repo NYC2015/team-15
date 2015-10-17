@@ -1,4 +1,3 @@
-  <!--       
 
             <div class="media">
               <div class="media-left">
@@ -28,54 +27,41 @@ Gathering today at the Cafe on 32nd St!" ng-model="newPost"></textarea>
                 <br>
                 <br>
                 <button class='btn btn-success' ng-click="addNewPost()">Submit</button>
-
-
-
             </li>
               <li class="list-group-item" ng-repeat="post in allPosts | orderBy: '-points'">
                 <span class="badge">{{post.points}}</span>
                 <h4>{{post.content}}</h4>
                 {{post.user}}
                 <a ng-click="upvote(post)">Upvote</a>
+                <a ng-click="open(post)">Comments</a>
               </li>
             </ul>
 
-       <!--      <div class="jumbotron well" >
-                <a href=""></a>
-                <p>{{post.user}}</p>
-            </div> -->
 
 
-
-
-
-        <div class="row" style="margin-left: 10px;">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
                 <ul class="pagination">
-                    <li>
-                        <a href="forum.html">Prev</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">1</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">2</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">3</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">4</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">5</a>
-                    </li>
-                    <li>
-                        <a href="forum.html">Next</a>
-                    </li>
+                    <li><a href="forum.html">Prev</a></li>
+                    <li><a href="forum.html">1</a></li>
+                    <li><a href="forum.html">2</a></li>
+                    <li><a href="forum.html">3</a></li>
+                    <li><a href="forum.html">4</a></li>
+                    <li><a href="forum.html">5</a></li>
+                    <li><a href="forum.html">Next</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 </div>
+
+
+
+
+<!-- 
+
+<textarea class="form-control" rows="5" placeholder="New Comment" ng-model="newComment"></textarea>
+<br>
+<button class='btn btn-success' ng-click="addNewComment()">Submit</button> -->

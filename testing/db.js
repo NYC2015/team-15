@@ -11,7 +11,8 @@ var Post = new Schema({
 var Comment = new Schema({
     user: { type: String, required: true},
     content: { type: String, required: true},
-    points: { type: Number, unique: false }
+    postID : { type: Schema.Types.ObjectId, required: true}
+    // points: { type: Number, unique: false }
 });
 
 var DoctorClinic = new Schema({
