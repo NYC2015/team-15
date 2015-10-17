@@ -1,3 +1,16 @@
+/*
+
+This document is responsible for:
+    1) setting up the mongo schema 
+    2) connecting to the DB 
+
+The document will create Post, Comments, Clinic
+Doctor, User models and DoctorClinic association
+
+*/
+
+
+
 var mongoose = require( 'mongoose' );
 var Schema   = mongoose.Schema;
 

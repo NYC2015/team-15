@@ -1,3 +1,5 @@
+/*angular to help front end communicate with the backend*/
+
 var app = angular.module('app', [])
 var controllers = {};
 var factories = {};
@@ -15,12 +17,12 @@ app.directive('myBackgroundImage', function () {
     });;
 
 
-controllers.ModalInstanceCtrl = function ($scope, $modalInstance, post){
+controllers.ModalInstanceCtrl = function ($scope, post){
 	$scope.currentPost = post;
 };
 
 
-controllers.MainController = function ($scope, MainFact, $http, $modal){
+controllers.MainController = function ($scope, MainFact, $http){
 
 	$scope.mode = 0;
 

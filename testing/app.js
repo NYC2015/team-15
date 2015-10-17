@@ -1,4 +1,8 @@
+
+//Require the db connection
 require( './db' );
+
+//required NPM modules 
 var express = require('express');
 var path = require('path');
 var FacebookStrategy = FacebookStrategy = require('passport-facebook').Strategy;
@@ -10,10 +14,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
+//facebook credentials 
 var FACEBOOK_APP_ID = '1622468598005411';
 var FACEBOOK_APP_SECRET = "7b33ff4390aed0a93e2fda62991fd306";
 
 
+//locating the routes 
 var routes = require('./routes/index');
 var api = require('./routes/api');
 var auth = require('./routes/auth');
@@ -21,6 +27,7 @@ var auth = require('./routes/auth');
 var app = express();
 
 
+//serializeing user for cookie purposes 
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -29,6 +36,8 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
+
+//using facebook login as a middleware
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
@@ -58,10 +67,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'such secret wow' }));
 
+
+//initialize sessions 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
+//set up top level routing
 app.use('/auth', auth);
 app.use('/api', api);
 app.use('/', routes);

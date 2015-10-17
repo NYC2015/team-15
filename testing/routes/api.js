@@ -1,3 +1,5 @@
+/*Document provides the crud operations for the mongodb*/
+
 var express = require('express');
 var router = express.Router();
 
