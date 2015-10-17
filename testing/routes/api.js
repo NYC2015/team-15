@@ -11,7 +11,9 @@ var Doctor = mongoose.model('Doctor', Doctor);
 var User = mongoose.model('User', User);
 
 router.post('/newPost', function(req, res, next) {
+	console.log("new post");
 	var newPost = req.body;
+	console.log(newPost);
 	new Post({
 		user : newPost.user,  
 		content : newPost.content,  

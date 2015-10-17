@@ -1,6 +1,12 @@
-extends layout
+<html>
+<head>
+	<title>Error</title>
+</head>
+<body>
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  <h1>Message</h1>
+  <h1><%= error.status%></h1>
+  <h2><%= error.stack%></h2>
+
+</body>
+</html>
