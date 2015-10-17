@@ -1,8 +1,20 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../image/bgimg.png");
 }
 
 a {
   color: #00B7FF;
+}
+
+.background {
+	background-image: url("../image/bgimg.png");
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border:3px solid #8AC007;
+    padding: 10px;
 }
