@@ -5,7 +5,6 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 var Post     = mongoose.model( 'Post' );
 
-
 router.post('/newPost', function(req, res, next) {
 	var newPost = req.body;
 	new Post({
@@ -24,6 +23,8 @@ router.get('/getPosts', function (req, res, next) {
 	    res.json(docs);
 	});
 });
+
+
 
 
 
