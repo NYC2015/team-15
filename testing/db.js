@@ -5,19 +5,18 @@ var Post = new Schema({
     user: { type: String, required: true },  
     content: { type: String, required: true},  
     points: { type: Number, unique: false },
-    comments: [ObjectId]
+    comments: [Schema.Types.ObjectId]
 });
 
 var Comment = new Schema({
     user: { type: String, required: true},
     content: { type: String, required: true},
     points: { type: Number, unique: false }
-})
+});
 
 var DoctorClinic = new Schema({
-    ClinicID: { type: ObjectId, required: true},
-    DoctorID: { type: ObjectId, required: true}
-
+    ClinicID: { type: Schema.Types.ObjectId, required: true},
+    DoctorID: { type: Schema.Types.ObjectId, required: true}
 });
 
 var Clinic = new Schema({
@@ -28,6 +27,7 @@ var Clinic = new Schema({
 var Doctor = new Schema({
     name: { type: String, required: true},
     licenseNumber: { type: Number, required: true},
+    location: { type: String, required: true},
     admin: { type: Boolean, required: true}
 });
 
