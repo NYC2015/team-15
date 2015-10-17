@@ -1,0 +1,22 @@
+<html ng-app='app'>
+<head>
+	<title>Hello There</title>
+	<script type="text/javascript" src="javascripts/angular.min.js"></script>
+	<script type="text/javascript" src="javascripts/ang.js"></script>
+</head>
+<body ng-controller="MainController">
+	<input placeholder="user" ng-model="newPost.user">
+	<input placeholder="content" ng-model="newPost.content">
+	<input placeholder="points" ng-model="newPost.points">
+	<button ng-click='addNewPost()'>Save</button>
+
+	<div class="container">
+		<div ng-repeat="thing in allPosts">
+			<p>user: {{thing.user}}</p>
+			<p>content: {{thing.content}}</p>
+			<p>points: {{thing.points}}</p>
+		</div>
+	</div>
+
+</body>
+</html>
