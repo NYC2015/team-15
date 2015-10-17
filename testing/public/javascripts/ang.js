@@ -5,7 +5,12 @@ app.controller(controllers);
 app.factory(factories);
 
 
-controllers.MainController = function ($scope, MainFact, $http){
+controllers.ModalInstanceCtrl = function ($scope, $modalInstance, post){
+	$scope.currentPost = post;
+};
+
+
+controllers.MainController = function ($scope, MainFact, $http, $modal){
 
 	$scope.mode = 0;
 
@@ -17,7 +22,7 @@ controllers.MainController = function ($scope, MainFact, $http){
 	function getPosts () {
 		$http.get('api/getPosts').success(function (data){
 			$scope.allPosts = data;
-			$scope.$apply();
+			// $scope.$apply();
 		});
 	} getPosts();
 
