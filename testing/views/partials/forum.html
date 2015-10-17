@@ -22,10 +22,11 @@
 
 
             </li>
-              <li class="list-group-item" ng-repeat="post in allPosts | orderBy:'toString()'">
-                <span class="badge">14</span>
+              <li class="list-group-item" ng-repeat="post in allPosts | orderBy: '-points'">
+                <span class="badge">{{post.points}}</span>
                 <h4>{{post.content}}</h4>
                 {{post.user}}
+                <a ng-click="upvote(post)">Upvote</a>
               </li>
             </ul>
 
