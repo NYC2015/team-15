@@ -17,9 +17,17 @@ router.post('/newPost', function(req, res, next) {
 	new Post({
 		user : newPost.user,  
 		content : newPost.content,  
-		points : newPost.points
+		points : newPost.points,
+		comments : [Schema.Types.ObjectId]
 	}).save(function (err, users, count){
 		res.send(200);
+	});
+});
+
+router.get('/getPosts', function (req, res, next) {
+	Post.find({}, function (err, docs) {
+		console.log(err);
+		res.json(docs);
 	});
 });
 
@@ -44,6 +52,13 @@ router.post('/newClinic', function(req, res, next) {
 		});
 });
 
+router.get('/getClinics', function (req, res, next) {
+	Clinic.find({}, function (err, docs) {
+		console.log(err);
+		res.json(docs);
+	});
+});
+
 router.post('/newDoctor', function(req, res, next) {
 	var newDoctor = req.body;
 	new Doctor({
@@ -54,6 +69,13 @@ router.post('/newDoctor', function(req, res, next) {
 	}).save(function(err, users, count) {
 			res.send(200);
 		});
+});
+
+router.get('/getDoctors', function (req, res, next) {
+	Doctor.find({}, function (err, docs) {
+		console.log(err);
+		res.json(docs);
+	});
 });
 
 router.post('/newUser', function(req, res, next) {
@@ -68,15 +90,12 @@ router.post('/newUser', function(req, res, next) {
 		});
 });
 
-
-router.get('/getPosts', function (req, res, next) {
-	Post.find({}, function (err, docs) {
+router.get('/getUsers', function (req, res, next) {
+	User.find({}, function (err, docs) {
 		console.log(err);
-	    res.json(docs);
+		res.json(docs);
 	});
 });
-
-
 
 
 
