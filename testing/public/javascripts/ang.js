@@ -18,6 +18,11 @@ app.directive('myBackgroundImage', function () {
 controllers.MainController = function ($scope, MainFact, $http){
 
 	$scope.mode = 0;
+
+	$scope.upvote = function (post){
+		$.post('/api/upvote?id='+post._id, {data : post._id}).success(getPosts);
+		$scope.newPost = "";
+	}
 	
 	function getPosts () {
 		$http.get('api/getPosts').success(function (data){

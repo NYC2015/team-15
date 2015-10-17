@@ -10,6 +10,22 @@ var Clinic = mongoose.model('Clinic', Clinic);
 var Doctor = mongoose.model('Doctor', Doctor);
 var User = mongoose.model('User', User);
 
+
+
+router.post('/upvote', function (req, res) {
+	var id = req.param('id');
+	// Post.update({ 'id': id }, { $inc: { points: 1 }}, res.send(200));
+
+	Post.findByIdAndUpdate({ _id: id }, {$inc: {points:1}}, function (err, data) {
+
+		res.send(err);
+	});
+
+
+	// Post.findOneAndUpdate({ 'id': id }, { $inc: { points: 1 }}, res.send(200));
+	});
+
+
 router.post('/newPost', function (req, res) {
 	console.log("new post");
 	var name = req.user.name.givenName + " " + req.user.name.familyName;
