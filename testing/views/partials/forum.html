@@ -1,12 +1,38 @@
-        
+  <!--       
 
-        <div ng-repeat="post in allPosts">
-            <div class="jumbotron well" >
-                <a href=""><h2>{{post.content}}</h2></a>
-                <p>{{post.user}}</p>
+            <div class="media">
+              <div class="media-left">
+                <a ng-click="upvote(post)">
+                  <img class="media-object" src="..." alt="...">
+                </a>
+              </div>
+              <div class="media-body">
+               
+              </div>
             </div>
+ -->
 
-        </div>
+            <ul class="list-group">
+
+            <li class="list-group-item">
+                <textarea class="form-control" rows="5" placeholder="New Comment" ng-model="newPost"></textarea>
+                <br>
+                <button class='btn btn-success' ng-click="addNewPost()">Submit</button>
+
+
+
+            </li>
+              <li class="list-group-item" ng-repeat="post in allPosts | orderBy:'toString()'">
+                <span class="badge">14</span>
+                <h4>{{post.content}}</h4>
+                {{post.user}}
+              </li>
+            </ul>
+
+       <!--      <div class="jumbotron well" >
+                <a href=""></a>
+                <p>{{post.user}}</p>
+            </div> -->
 
 
 
