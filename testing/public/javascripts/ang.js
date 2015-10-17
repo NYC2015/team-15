@@ -10,16 +10,15 @@ controllers.MainController = function ($scope, MainFact, $http){
 	$scope.mode = 0;
 	
 	function getPosts () {
-		$http.get('api/getPosts', function (data){
-			alert(data);
+		$http.get('api/getPosts').success(function (data){
 			$scope.allPosts = data;
 			$scope.$apply();
 		});
 	} getPosts();
 
 	$scope.addNewPost = function () {
-		$http.post('api/newPost', $scope.newPost).success(getPosts);
-		$scope.newPost = {};
+		$.post('/api/newPost', {data :$scope.newPost}).success(getPosts);
+		$scope.newPost = "";
 	};
 
 	function getClinics () {

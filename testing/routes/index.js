@@ -5,7 +5,7 @@ var text = require('textbelt');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	if(req.user == null){
-	  res.render('login.html', { title: 'Express' });
+	  res.render('login.html', { user: req.user });
 	} else {
 	  res.render('index.html', { title: 'Express' });
 

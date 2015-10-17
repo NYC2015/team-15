@@ -33,7 +33,7 @@ passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
     callbackURL: "http://localhost:3000/auth/facebook/callback",
-    profileFields : ['email', 'location', 'hometown']
+    profileFields : ['email', 'location', 'hometown', 'name']
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
@@ -60,7 +60,6 @@ app.use(session({ secret: 'such secret wow' }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 
 app.use('/auth', auth);

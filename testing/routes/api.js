@@ -10,16 +10,18 @@ var Clinic = mongoose.model('Clinic', Clinic);
 var Doctor = mongoose.model('Doctor', Doctor);
 var User = mongoose.model('User', User);
 
-router.post('/newPost', function(req, res, next) {
+router.post('/newPost', function (req, res) {
 	console.log("new post");
+	var name = req.user.name.givenName + " " + req.user.name.familyName;
 	var newPost = req.body;
 	console.log(newPost);
 	new Post({
-		user : newPost.user,  
-		content : newPost.content,  
-		points : newPost.points,
-		comments : [Schema.Types.ObjectId]
+		user : name,  
+		content : newPost.data,  
+		points : 0
+		// comments : [Schema.Types.ObjectId]
 	}).save(function (err, users, count){
+		console.log(err);
 		res.send(200);
 	});
 });

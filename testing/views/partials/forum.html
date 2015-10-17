@@ -1,19 +1,17 @@
-        <div class="jumbotron well">
-            <a href="post.html"><h2>Title</h2></a>
-            <p>user</p>
+        
+
+        <div ng-repeat="post in allPosts">
+            <div class="jumbotron well" >
+                <a href=""><h2>{{post.content}}</h2></a>
+                <p>{{post.user}}</p>
+            </div>
+
         </div>
-        <div class="jumbotron well">
-            <a href="post.html"><h2>Title</h2></a>
-            <p>user</p>
-        </div>
-        <div class="jumbotron well">
-            <a href="post.html"><h2>Title</h2></a>
-            <p>user</p>
-        </div>
-        <div class="jumbotron well">
-            <a href="post.html"><h2>Title</h2></a>
-            <p>user</p>
-        </div>
+
+
+
+
+
         <div class="row" style="margin-left: 10px;">
             <div class="col-md-12">
                 <ul class="pagination">

@@ -4,8 +4,8 @@ var Schema   = mongoose.Schema;
 var Post = new Schema({
     user: { type: String, required: true },  
     content: { type: String, required: true},  
-    points: { type: Number, unique: false },
-    comments: [Schema.Types.ObjectId]
+    points: { type: Number, unique: false }
+    // comments: [Schema.Types.ObjectId]
 });
 
 var Comment = new Schema({
