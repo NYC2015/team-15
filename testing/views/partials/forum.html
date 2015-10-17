@@ -1,6 +1,6 @@
 
             <ul class="list-group">
-            <li class="list-group-item">
+            <a class="list-group-item">
                 <textarea class="form-control" rows="5" placeholder="I want to tell my mom but don't know how to go about it! Help?
 Gathering today at the Cafe on 32nd St!" ng-model="newPost"></textarea>
                 <br>
@@ -15,14 +15,27 @@ Gathering today at the Cafe on 32nd St!" ng-model="newPost"></textarea>
                 <br>
                 <br>
                 <button class='btn btn-success' ng-click="addNewPost()">Submit</button>
-            </li>
+            </a>
               <li class="list-group-item" ng-repeat="post in allPosts | orderBy: '-points'">
                 <span class="badge">{{post.points}}</span>
-                <h4>{{post.content}}</h4>
+                <h4><a ng-click="upvote(post)"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                <a ng-click="setCommentView(post)"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a> {{post.content}}</h4>
                 {{post.user}}
-                <a ng-click="upvote(post)">Upvote</a>
-                <a ng-click="open(post)">Comments</a>
+                <div ng-show="viewing == post">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="comment in post.comments">
+                            <span class="badge">{{comment.points}}</span>
+                            <h4>{{comment.content}}</h4>
+                            {{comment.user}}
+                        </li>
+                                    <li class="list-group-item">
+                                        <textarea class="form-control" rows="3" placeholder="Comment on this post... "ng-model="post.newComment"></textarea><br>
+                                        <button class='btn btn-success' ng-click="addNewComment(post)">Submit</button>
+                                    </li>
+                    </ul>
+                </div>
               </li>
+
             </ul>
 
 

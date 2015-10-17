@@ -51,16 +51,30 @@ router.get('/getPosts', function (req, res, next) {
 	});
 });
 
+router.get('/getComments', function (req, res, next) {
+	var id = req.param('id');
+	Comment.find({postID : id}, function (err, docs) {
+		console.log(err);
+		res.json(docs);
+	});
+});
+
 router.post('/newComment', function(req, res, next) {
 	var newComment = req.body;
+	console.log(newComment);
+	var name = req.user.name.givenName + " " + req.user.name.familyName;
 	new Comment({
-		user : newComment.user,
-		content : newComment.content,
-		points : newComment.points
-	}).save(function(err, users, count) {
-			res.send(200);
-		});
+		user : name,  
+		content : newComment.data,  
+		postID : newComment.postID
+		// points : 0
+		// comments : [Schema.Types.ObjectId]
+	}).save(function (err, users, count){
+		console.log(err);
+		res.send(200);
+	});
 });
+
 
 router.post('/newClinic', function(req, res, next) {
 	var newClinic = req.body;

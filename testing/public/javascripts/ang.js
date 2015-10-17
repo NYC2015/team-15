@@ -22,7 +22,19 @@ controllers.ModalInstanceCtrl = function ($scope, post){
 };
 
 
+
+
 controllers.MainController = function ($scope, MainFact, $http){
+
+
+
+
+	$scope.setCommentView = function (post) {
+		$http.get('api/getComments?id=' + post._id).success(function (data){
+			post.comments = data;
+			$scope.viewing = post;
+		});
+	}
 
 	$scope.mode = 0;
 
@@ -42,6 +54,14 @@ controllers.MainController = function ($scope, MainFact, $http){
 		$.post('/api/newPost', {data :$scope.newPost}).success(getPosts);
 		$scope.newPost = "";
 	};
+
+
+	$scope.addNewComment = function (post) {
+		$.post('/api/newComment', {data : post.newComment, postID : post._id}).success(getPosts);
+		$scope.newPost = "";
+	};
+
+
 
 	function getClinics () {
 		$http.get('api/getClinics', function(data){
