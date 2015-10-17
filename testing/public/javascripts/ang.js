@@ -7,7 +7,7 @@ app.factory(factories);
 
 controllers.MainController = function ($scope, MainFact, $http){
 
-	$scope.balls = "taufiq";
+	$scope.mode = 0;
 	
 	function getPosts () {
 		$http.get('api/getPosts', function (data){
